@@ -190,3 +190,88 @@ h1 {
 
 
 }
+/* =====================================
+   IMPROVED LETTER MOBILE VIEW
+===================================== */
+
+@media (max-width: 768px){
+
+    body {
+        overflow-y: auto;
+    }
+
+
+    .letter {
+        width: 92%;
+        min-height: auto;
+        height: auto;
+        padding: 30px 20px;
+        margin: 30px auto;
+        border-radius: 15px;
+        box-sizing: border-box;
+    }
+
+
+    .letter-content,
+    .letter-text {
+        width: 100%;
+        height: auto;
+        overflow: visible;
+        font-size: 16px;
+        line-height: 1.8;
+        text-align: left;
+    }
+
+
+    .letter h1 {
+        font-size: 26px;
+        margin-bottom: 20px;
+    }
+
+
+    .letter p {
+        font-size: 16px;
+        line-height: 1.8;
+        text-align: left;
+        margin-bottom: 18px;
+    }
+
+
+    .continue-btn,
+    #continueBtn {
+        display: block;
+        position: relative;
+        margin: 30px auto;
+        width: 85%;
+        z-index: 999;
+        opacity: 1;
+        visibility: visible;
+    }
+
+}
+
+
+
+/* Very small phones */
+
+@media(max-width:480px){
+
+    .letter {
+        padding: 20px 15px;
+        width: 94%;
+    }
+
+
+    .letter p {
+        font-size: 15px;
+        line-height: 1.7;
+    }
+
+
+    .continue-btn,
+    #continueBtn {
+        font-size: 15px;
+        padding: 12px;
+    }
+
+}

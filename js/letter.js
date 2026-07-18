@@ -1,6 +1,6 @@
 const text = `
 
-My bae kwaku bonsam ❤️,
+My bae Kwaku Bonsam ❤️,
 
 
 Happy Birthday to you.
@@ -33,51 +33,46 @@ I Love You Forever.
 `;
 
 
+const output = document.getElementById("letterText");
 
-const output =
-document.getElementById("letterText");
-
-
-let index=0;
-
+let index = 0;
 
 
 function typeLetter(){
 
+    if(index < text.length){
 
-if(index < text.length){
+        output.textContent += text.charAt(index);
 
-
-output.innerHTML += text.charAt(index);
-
-
-index++;
+        index++;
 
 
-setTimeout(typeLetter,50);
+        // slower and smoother typing
+        setTimeout(typeLetter, 90);
 
-
-}
-
+    }
 
 }
-
 
 
 typeLetter();
 
 
 
-document.getElementById("continue").onclick=()=>{
+// Continue button
+
+const continueBtn = document.getElementById("continue");
 
 
-document.body.classList.add("fade-out");
+continueBtn.onclick = ()=>{
 
-setTimeout(()=>{
+    document.body.classList.add("fade-out");
 
-window.location.href="final.html";
 
-},1500);
+    setTimeout(()=>{
 
+        window.location.href="final.html";
+
+    },1500);
 
 };
