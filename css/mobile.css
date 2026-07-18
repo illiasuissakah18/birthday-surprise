@@ -1,0 +1,188 @@
+/* ==========================
+   MOBILE OPTIMIZATION
+========================== */
+
+
+@media(max-width:768px){
+
+
+/* COUNTDOWN */
+
+
+h1{
+
+font-size:38px !important;
+
+}
+
+
+.description{
+
+font-size:16px !important;
+
+width:95% !important;
+
+}
+
+
+.countdown{
+
+gap:12px !important;
+
+}
+
+
+.box{
+
+width:90px !important;
+
+height:90px !important;
+
+}
+
+
+.box span{
+
+font-size:30px !important;
+
+}
+
+
+/* HEART PORTAL */
+
+
+.glow-heart{
+
+font-size:80px !important;
+
+}
+
+
+.portal h1{
+
+font-size:32px !important;
+
+}
+
+
+.portal p{
+
+font-size:16px !important;
+
+}
+
+
+button{
+
+font-size:16px !important;
+
+padding:15px 35px !important;
+
+}
+
+
+
+/* HEART UNIVERSE */
+
+
+.heart-container{
+
+transform:scale(.55);
+
+}
+
+
+.message{
+
+font-size:14px !important;
+
+}
+
+
+
+.love-message{
+
+font-size:13px !important;
+
+padding:10px 15px !important;
+
+}
+
+
+
+/* MEMORIES */
+
+
+.gallery{
+
+flex-direction:column;
+
+gap:20px;
+
+}
+
+
+.memory-card{
+
+width:260px;
+
+}
+
+
+
+h1{
+
+font-size:35px;
+
+}
+
+
+
+/* LETTER */
+
+
+.paper{
+
+padding:25px !important;
+
+min-height:400px;
+
+}
+
+
+
+#letterText{
+
+font-size:18px !important;
+
+}
+
+
+
+/* FINAL */
+
+
+.gift{
+
+font-size:100px;
+
+}
+
+
+#surprise{
+
+padding:25px;
+
+}
+
+
+
+#surprise p{
+
+font-size:18px;
+
+}
+
+
+
+}
