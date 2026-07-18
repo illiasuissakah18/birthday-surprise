@@ -2,7 +2,7 @@
 // COUNTDOWN SYSTEM
 // =======================================
 
-const unlockDate = new Date("July 1, 2026 00:00:00").getTime();
+const unlockDate = new Date("July 18, 2026 00:00:00").getTime();
 
 
 const days = document.getElementById("days");
