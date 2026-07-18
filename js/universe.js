@@ -1,8 +1,23 @@
 const heart = document.getElementById("heart");
 
 
-// Create orbiting hearts (reduced for mobile)
-for(let i = 0; i < 50; i++){
+// =================================
+// RESPONSIVE PERFORMANCE SETTINGS
+// =================================
+
+const isMobile = window.innerWidth <= 768;
+
+const orbitCount = isMobile ? 40 : 70;
+const heartCount = isMobile ? 70 : 120;
+const particleCount = isMobile ? 50 : 100;
+
+
+
+// =================================
+// ORBITING HEARTS
+// =================================
+
+for(let i = 0; i < orbitCount; i++){
 
     const small = document.createElement("div");
 
@@ -10,18 +25,26 @@ for(let i = 0; i < 50; i++){
 
     small.innerHTML = "❤️";
 
-    let distance = 120 + Math.random() * 180;
+
+    let distance =
+    isMobile 
+    ? 100 + Math.random()*150
+    : 150 + Math.random()*220;
+
 
     small.style.setProperty(
         "--distance",
-        distance + "px"
+        distance+"px"
     );
 
+
     small.style.animationDuration =
-    (8 + Math.random() * 10) + "s";
+    (8 + Math.random()*10)+"s";
+
 
     small.style.animationDelay =
-    Math.random() * 3 + "s";
+    Math.random()*3+"s";
+
 
     heart.appendChild(small);
 
@@ -29,24 +52,31 @@ for(let i = 0; i < 50; i++){
 
 
 
-// Create heart shape behind (reduced)
-for(let i = 0; i < 80; i++){
+// =================================
+// BIG HEART FORMATION
+// =================================
 
-    const small = document.createElement("div");
+for(let i = 0; i < heartCount; i++){
 
-    small.className = "small-heart";
+    const small =
+    document.createElement("div");
 
-    small.innerHTML = "❤️";
+
+    small.className =
+    "small-heart";
 
 
-    small.style.opacity = "0";
+    small.innerHTML="❤️";
+
+
+    small.style.opacity="0";
 
 
     setTimeout(()=>{
 
-        small.style.opacity = "1";
+        small.style.opacity="1";
 
-    }, Math.random()*2000);
+    },Math.random()*2000);
 
 
     heart.appendChild(small);
@@ -55,28 +85,35 @@ for(let i = 0; i < 80; i++){
 
 
 
-// Galaxy particles (reduced)
+
+// =================================
+// GALAXY PARTICLES
+// =================================
+
 const particles =
 document.getElementById("particles");
 
 
-for(let i = 0; i < 60; i++){
+for(let i=0;i<particleCount;i++){
 
-    const p = document.createElement("div");
+    const p =
+    document.createElement("div");
 
-    p.className = "galaxy-particle";
+
+    p.className =
+    "galaxy-particle";
 
 
     p.style.left =
-    Math.random()*100 + "%";
+    Math.random()*100+"%";
 
 
     p.style.top =
-    Math.random()*100 + "%";
+    Math.random()*100+"%";
 
 
     p.style.animationDuration =
-    (8 + Math.random()*8) + "s";
+    (8+Math.random()*8)+"s";
 
 
     particles.appendChild(p);
@@ -85,7 +122,10 @@ for(let i = 0; i < 60; i++){
 
 
 
-// Love message entrance
+
+// =================================
+// LOVE MESSAGE ANIMATION
+// =================================
 
 const messages =
 document.querySelectorAll(".love-message");
@@ -102,16 +142,20 @@ messages.forEach((msg,index)=>{
 
         msg.style.opacity="1";
 
+
     },3000 + index*1200);
 
 });
 
 
 
-// Move to letter page
+
+// =================================
+// NEXT PAGE
+// =================================
 
 setTimeout(()=>{
 
-    window.location.href="letter.html";
+window.location.href="letter.html";
 
 },15000);

@@ -938,3 +938,14 @@ opacity:1;
 }
 
 }
+* {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+
+.orbit-heart,
+.small-heart,
+.galaxy-particle {
+    will-change: transform, opacity;
+}
