@@ -2,13 +2,19 @@
 // COUNTDOWN SYSTEM
 // =======================================
 
-const unlockDate = new Date("July 17, 2026 00:00:00").getTime();
+// TEST MODE: unlock immediately
+// After testing change this back to:
+// new Date("July 20, 2026 00:00:00").getTime();
+
+const unlockDate = new Date(Date.now() - 1000).getTime();
+
 
 
 const days = document.getElementById("days");
 const hours = document.getElementById("hours");
 const minutes = document.getElementById("minutes");
 const seconds = document.getElementById("seconds");
+
 
 
 function updateCountdown(){
@@ -18,37 +24,50 @@ function updateCountdown(){
     const distance = unlockDate - now;
 
 
+
     if(distance <= 0){
+
 
         clearInterval(timer);
 
+
         document.querySelector(".container").innerHTML = `
 
+
         <h3>
-        🎉 The Surprise Is Ready 🎉
+            🎉 The Surprise Is Ready 🎉
         </h3>
 
+
         <h1>
-        Happy Birthday Jeffrey ❤️
+            Happy Birthday Jeffrey ❤️
         </h1>
 
+
         <p>
-        Your magical journey begins now...
+            Your magical journey begins now...
         </p>
+
 
         `;
 
 
+
         setTimeout(()=>{
+
 
             window.location.href="heart.html";
 
+
         },5000);
+
 
 
         return;
 
     }
+
+
 
 
     const d = Math.floor(
@@ -73,6 +92,7 @@ function updateCountdown(){
     );
 
 
+
     days.textContent =
     String(d).padStart(2,"0");
 
@@ -88,12 +108,16 @@ function updateCountdown(){
     seconds.textContent =
     String(s).padStart(2,"0");
 
+
 }
+
 
 
 let timer = setInterval(updateCountdown,1000);
 
 updateCountdown();
+
+
 
 
 
@@ -106,7 +130,11 @@ const starsContainer =
 document.getElementById("stars");
 
 
-for(let i=0;i<300;i++){
+if(starsContainer){
+
+
+for(let i=0;i<150;i++){
+
 
     const star =
     document.createElement("div");
@@ -127,17 +155,27 @@ for(let i=0;i<300;i++){
     Math.random()*3+"s";
 
 
+    const size =
+    Math.random()*3;
+
+
     star.style.width =
-    Math.random()*3+"px";
+    size+"px";
 
 
     star.style.height =
-    star.style.width;
+    size+"px";
 
 
     starsContainer.appendChild(star);
 
+
 }
+
+
+}
+
+
 
 
 
@@ -150,7 +188,10 @@ const particles =
 document.getElementById("particles");
 
 
-for(let i=0;i<50;i++){
+if(particles){
+
+
+for(let i=0;i<40;i++){
 
 
     const particle =
@@ -174,7 +215,12 @@ for(let i=0;i<50;i++){
 
     particles.appendChild(particle);
 
+
 }
+
+
+}
+
 
 
 
@@ -187,37 +233,38 @@ for(let i=0;i<50;i++){
 function createShootingStar(){
 
 
-    const container =
-    document.getElementById(
-        "shooting-stars"
-    );
+const container =
+document.getElementById("shooting-stars");
 
 
-    const star =
-    document.createElement("div");
-
-
-    star.className=
-    "shooting-star";
-
-
-    star.style.top =
-    Math.random()*50+"%";
-
-
-    star.style.left =
-    Math.random()*50+"%";
-
-
-    container.appendChild(star);
+if(!container) return;
 
 
 
-    setTimeout(()=>{
+const star =
+document.createElement("div");
 
-        star.remove();
 
-    },4000);
+star.className="shooting-star";
+
+
+star.style.top =
+Math.random()*50+"%";
+
+
+star.style.left =
+Math.random()*50+"%";
+
+
+container.appendChild(star);
+
+
+
+setTimeout(()=>{
+
+star.remove();
+
+},4000);
 
 
 }
@@ -225,50 +272,16 @@ function createShootingStar(){
 
 
 setInterval(
-    createShootingStar,
-    3000
+createShootingStar,
+3000
 );
-// =======================================
-// BACKGROUND MUSIC CONTROL
-// =======================================
 
 
-const music =
-document.getElementById("music");
-
-const musicBtn =
-document.getElementById("musicBtn");
-
-
-music.volume = 0.4;
-
-
-musicBtn.onclick = ()=>{
-
-
-if(music.paused){
-
-music.play();
-
-musicBtn.innerHTML="🔊";
-
-}
-
-else{
-
-music.pause();
-
-musicBtn.innerHTML="🔇";
-
-}
-
-
-};
 
 
 
 // =======================================
-// FLOATING HEART GENERATOR
+// FLOATING HEARTS
 // =======================================
 
 
@@ -279,17 +292,20 @@ const heart =
 document.createElement("div");
 
 
-heart.className=
+heart.className =
 "floating-heart";
 
 
 const hearts=[
+
 "❤️",
 "💖",
 "💕",
 "💗",
 "💘"
+
 ];
+
 
 heart.innerHTML =
 hearts[
@@ -297,16 +313,20 @@ Math.floor(Math.random()*hearts.length)
 ];
 
 
+
 heart.style.left =
 Math.random()*100+"%";
+
 
 
 heart.style.animationDuration =
 (5+Math.random()*8)+"s";
 
 
+
 heart.style.fontSize =
 (15+Math.random()*30)+"px";
+
 
 
 document.body.appendChild(heart);
@@ -323,7 +343,8 @@ heart.remove();
 }
 
 
+
 setInterval(
 createHeart,
-800
+1200
 );
