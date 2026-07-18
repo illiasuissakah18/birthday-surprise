@@ -1,133 +1,90 @@
-const heart =
-document.getElementById("heart");
+const heart = document.getElementById("heart");
 
 
-// Create orbiting hearts
+// Create orbiting hearts (reduced for mobile)
+for(let i = 0; i < 50; i++){
 
-for(let i=0;i<150;i++){
+    const small = document.createElement("div");
 
+    small.className = "orbit-heart";
 
-const small =
-document.createElement("div");
+    small.innerHTML = "❤️";
 
+    let distance = 120 + Math.random() * 180;
 
-small.className =
-"orbit-heart";
+    small.style.setProperty(
+        "--distance",
+        distance + "px"
+    );
 
+    small.style.animationDuration =
+    (8 + Math.random() * 10) + "s";
 
-small.innerHTML="❤️";
+    small.style.animationDelay =
+    Math.random() * 3 + "s";
 
-
-
-let distance =
-150 + Math.random()*300;
-
-
-
-small.style.setProperty(
-"--distance",
-distance+"px"
-);
-
-
-
-small.style.animationDuration =
-(5+Math.random()*15)+"s";
-
-
-
-small.style.animationDelay =
-Math.random()*5+"s";
-
-
-
-heart.appendChild(small);
-
+    heart.appendChild(small);
 
 }
 
 
 
+// Create heart shape behind (reduced)
+for(let i = 0; i < 80; i++){
 
-// Create heart shape behind
+    const small = document.createElement("div");
 
-for(let i=0;i<200;i++){
+    small.className = "small-heart";
 
-
-const small =
-document.createElement("div");
-
-
-small.className =
-"small-heart";
+    small.innerHTML = "❤️";
 
 
-small.innerHTML="❤️";
+    small.style.opacity = "0";
 
 
-let t =
-Math.random()*Math.PI*2;
+    setTimeout(()=>{
+
+        small.style.opacity = "1";
+
+    }, Math.random()*2000);
 
 
+    heart.appendChild(small);
 
-let x =
-16*Math.pow(Math.sin(t),3);
-
-
-let y =
-13*Math.cos(t)
--5*Math.cos(2*t)
--2*Math.cos(3*t)
--Math.cos(4*t);
+}
 
 
 
-small.style.opacity = "0";
-
-setTimeout(()=>{
-
-small.style.opacity="1";
-
-}, Math.random()*3000);
-
-
-heart.appendChild(small);
-
-}        
-
-
-// Galaxy particles
-
+// Galaxy particles (reduced)
 const particles =
 document.getElementById("particles");
 
 
-for(let i=0;i<200;i++){
+for(let i = 0; i < 60; i++){
+
+    const p = document.createElement("div");
+
+    p.className = "galaxy-particle";
 
 
-const p =
-document.createElement("div");
+    p.style.left =
+    Math.random()*100 + "%";
 
 
-p.className =
-"galaxy-particle";
+    p.style.top =
+    Math.random()*100 + "%";
 
 
-p.style.left =
-Math.random()*100+"%";
+    p.style.animationDuration =
+    (8 + Math.random()*8) + "s";
 
 
-p.style.top =
-Math.random()*100+"%";
-
-
-p.style.animationDuration =
-(5+Math.random()*10)+"s";
-
-
-particles.appendChild(p);
+    particles.appendChild(p);
 
 }
+
+
+
 // Love message entrance
 
 const messages =
@@ -136,22 +93,25 @@ document.querySelectorAll(".love-message");
 
 messages.forEach((msg,index)=>{
 
+    msg.style.opacity="0";
 
-msg.style.opacity="0";
 
+    setTimeout(()=>{
+
+        msg.style.transition="2s";
+
+        msg.style.opacity="1";
+
+    },3000 + index*1200);
+
+});
+
+
+
+// Move to letter page
 
 setTimeout(()=>{
 
+    window.location.href="letter.html";
 
-msg.style.transition="2s";
-
-msg.style.opacity="1";
-
-
-},4000 + index*1500);
-
-
-});
-setTimeout(() => {
-    window.location.href = "letter.html";
-}, 15000);
+},15000);
