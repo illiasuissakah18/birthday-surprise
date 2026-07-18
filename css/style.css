@@ -700,3 +700,28 @@ box-shadow:
 
 
 }
+#musicStart{
+
+position:fixed;
+
+bottom:25px;
+
+right:25px;
+
+padding:15px 25px;
+
+border-radius:50px;
+
+border:none;
+
+background:#ff2e88;
+
+color:white;
+
+font-size:16px;
+
+z-index:999;
+
+box-shadow:0 0 20px #ff2e88;
+
+}
