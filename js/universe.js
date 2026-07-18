@@ -152,3 +152,6 @@ msg.style.opacity="1";
 
 
 });
+setTimeout(() => {
+    window.location.href = "letter.html";
+}, 15000);

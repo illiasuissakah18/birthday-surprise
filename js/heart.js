@@ -31,3 +31,8 @@ if(navigator.vibrate){
 navigator.vibrate(100);
 
 }
+const enterButton = document.getElementById("enter");
+
+enterButton.addEventListener("click", () => {
+    window.location.href = "universe.html";
+});
